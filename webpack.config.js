@@ -1,13 +1,15 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'index.js',
+        libraryTarget: 'umd'
     },
+    externals: [nodeExternals()],
     devtool: "none",
     mode: 'development',
     module: {
@@ -36,10 +38,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebPackPlugin({
-            template: "./src/index.html",
-            filename: "./index.html"
-        }),
-        new BundleAnalyzerPlugin()
+        //new BundleAnalyzerPlugin()
     ]
 };

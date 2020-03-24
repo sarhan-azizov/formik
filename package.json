@@ -2,7 +2,10 @@
   "name": "microfrontend-application-a",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production"
@@ -23,12 +26,12 @@
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
     "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.1",
     "webpack": "^4.42.0",
     "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -36,7 +39,6 @@
     "microfrontend-common-ui": "file:../microfrontend-common-ui",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3"
   }
