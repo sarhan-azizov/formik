@@ -1,6 +1,7 @@
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const nodeExternals = require('webpack-node-externals');
+const baseWPCfg = require("../../webpack.config");
 
 module.exports = {
     entry: './src/index.js',
@@ -10,37 +11,13 @@ module.exports = {
         libraryTarget: 'umd'
     },
     externals: [nodeExternals()],
-    devtool: "none",
-    mode: 'development',
+    devtool: baseWPCfg.devtool,
+    mode: baseWPCfg.mode,
     devServer: {
         writeToDisk: true,
         port: 8001
     },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            importLoaders: 1
-                        }
-                    },
-                    'sass-loader'
-                ]
-            }
-        ]
-    },
+    module: baseWPCfg.module,
     plugins: [
         //new BundleAnalyzerPlugin()
     ]
