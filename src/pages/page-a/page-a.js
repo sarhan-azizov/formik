@@ -8,7 +8,7 @@ const PageA = () => (
     <div className={styles.root}>
         MS A, Page A
         <SarhanButton>SarhanButton</SarhanButton>
-        <SarhanIcon>SarhanIcon</SarhanIcon>
+        <SarhanIcon>SarhanIcon 2</SarhanIcon>
     </div>
 );
 
